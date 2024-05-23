@@ -5,6 +5,10 @@ include_once ("config/database.php");
 
 $rs = $con->query("SELECT * FROM animes WHERE slug = '" . $_GET['anime'] . "'");
 $row = $rs->fetch(PDO::FETCH_OBJ);
+
+$st = $con->prepare("UPDATE animes SET views = '".$row->views + 1 . "' WHERE slug = '".$_GET['anime']."'");
+$st->execute();
+
 ?>
 
 <head>

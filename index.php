@@ -144,33 +144,33 @@ include_once ("config/database.php");
               </div>
             </div>
             <div class="row">
-              <?php
+            <?php
 
-              //Listagem de animes  por visualização
-              $rs = $con->query("SELECT * FROM animes ORDER BY views DESC");
-              while ($row = $rs->fetch(PDO::FETCH_OBJ)) {
-                  echo '
-                  <a href="anime-details.php?anime=' . $row->slug . '">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="' . $row->cover . '">
-                                <div class="ep">18 / 18</div>
-                                <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                <div class="view"><i class="fa fa-eye"></i> ' . $row->views . '</div>
-                            </div>
-                            <div class="product__item__text">
-                                <ul>
-                                    <li>Active</li>
-                                    <li>Movie</li>
-                                </ul>
-                                <h5><a href="#">' . strtoupper($row->name) . '</a></h5>
-                            </div>
+            //Listagem de animes  por visualização
+            $rs = $con->query("SELECT * FROM animes ORDER BY views DESC");
+            while ($row = $rs->fetch(PDO::FETCH_OBJ)) {
+                echo '
+                <a href="anime-details.php?anime=' . $row->slug . '">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="' . $row->cover . '">
+                            <div class="ep">18 / 18</div>
+                            <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                            <div class="view"><i class="fa fa-eye"></i> ' . $row->views . '</div>
+                        </div>
+                        <div class="product__item__text">
+                            <ul>
+                                <li>Active</li>
+                                <li>Movie</li>
+                            </ul>
+                            <h5><a href="#">' . strtoupper($row->name) . '</a></h5>
                         </div>
                     </div>
-                    </a>
-                ';
-              }
-              ?>
+                </div>
+                </a>
+            ';
+            }
+            ?>
 
             </div>
           </div>
